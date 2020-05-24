@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 body {
     margin: 0;
     padding: 0;
@@ -22,21 +21,13 @@ a {
 
 .sidebar {
     width: 200px;
-    height: 100%;
-    padding: 0px 20px;
+    height: auto;
     color: #6b6b6b;
     position: fixed;
-    left: 0;
-    top: 0;
-    background: #fff;
-    border-width: 0 0 1px 0;
-    border-style: solid;
-    box-shadow: 0 0 2rem 0 rgba(136, 152, 170, .15);
 }
 
 .logo {
     padding: 25px 0px;
-    text-align: center;
 }
 
 .menu-content {
@@ -45,13 +36,6 @@ a {
     align-items: center;
     cursor: pointer;
     margin-bottom: 10px;
-}
-
-.menu-content:hover {
-    background: linear-gradient(90deg, rgba(91, 57, 201, 1) 0%, rgba(247, 122, 222, 1) 100%);
-    color: #fff;
-    border-radius: 6px;
-    box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
 }
 
 .menu-content i {
@@ -75,6 +59,7 @@ a {
 
 .menu-sidebar {
     margin-bottom: 120px;
+    padding-right: 30px;
     margin-top: 25px;
 }
 
