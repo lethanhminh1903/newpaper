@@ -528,3 +528,120 @@ td {
     text-align: center;
     margin-block-start: -20px;
 }
+
+.navbar-account {
+    width: 100%;
+    margin: auto;
+    position: absolute;
+    padding: 20px 150px;
+    z-index: 999999;
+}
+
+.bg-top {
+    width: 120%;
+    height: 450px;
+    background: linear-gradient(45deg, rgba(91, 57, 201, 1) 0%, rgba(247, 122, 222, 1) 100%);
+    transform: rotate(-3deg);
+    position: relative;
+    top: -60px;
+    left: -50px;
+}
+
+.login {
+    width: 445px;
+    height: 290px;
+    background: #f7fafc;
+    border-radius: 6px;
+    margin: auto;
+    margin-top: -200px;
+    z-index: 99999;
+    position: relative;
+    text-align: center;
+}
+
+.container-account {
+    z-index: 2;
+    text-align: center;
+}
+
+.login input {
+    width: 65%;
+    height: 45px;
+    margin: 30px 0px;
+    outline: none;
+    border: none;
+    box-shadow: 0 1px 3px rgba(50, 50, 93, .15), 0 1px 0 rgba(0, 0, 0, .02);
+    color: #172b4d;
+    font-size: 16px;
+    padding-left: 40px;
+    margin-top: 60px;
+}
+
+::placeholder {
+    color: #adb5bd;
+}
+
+.login button {
+    padding: 12px 25px;
+    font-size: 16px;
+    border: none;
+    background: linear-gradient(45deg, rgba(91, 57, 201, 1) 0%, rgba(247, 122, 222, 1) 100%);
+    color: #fff;
+    outline: none;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
+}
+
+.input-login {
+    position: relative;
+}
+
+.input-login i.gg-mail {
+    position: absolute;
+    top: 76px;
+    left: 69px;
+    color: #adb5bd;
+}
+
+.footer-login {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 25px;
+}
+
+.footer-login a {
+    color: #172b4d;
+}
+
+.container-account h1 {
+    position: relative;
+    top: -300px;
+    color: #fff;
+}
+
+.input-login i.gg-lock {
+    position: absolute;
+    top: 86px;
+    left: 69px;
+    color: #adb5bd;
+}
+
+.avatar-login {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    position: relative;
+    margin: auto;
+    top: -60px;
+    border: 2px solid #fff;
+}
+
+.login h3 {
+    position: relative;
+    top: -60px;
+}
+
+.step2 form {
+    position: relative;
+    top: -110px;
+}

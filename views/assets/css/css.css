@@ -12304,13 +12304,13 @@
     display: block;
     box-sizing: border-box;
     position: absolute;
-    width: 16px;
+    width: 18px;
     height: 10px;
     border-radius: 2px;
     border: 1px solid transparent;
-    box-shadow: 0 0 0 2px;
+    box-shadow: 0 0 0 1px;
     left: -4px;
-    top: 9px
+    top: 10px;
 }
 
 .gg-log-in {
@@ -12576,7 +12576,7 @@
     width: 14px;
     transform: rotate(-45deg);
     bottom: 3px;
-    left: 0
+    left: 1px;
 }
 
 .gg-math-divide {
