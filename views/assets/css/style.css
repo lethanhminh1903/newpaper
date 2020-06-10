@@ -13,6 +13,10 @@ a {
     text-decoration: none !important;
 }
 
+button {
+    cursor: pointer;
+}
+
 .container {
     max-width: 1140px;
     margin-right: auto;
@@ -24,6 +28,10 @@ a {
     height: auto;
     color: #6b6b6b;
     position: fixed;
+}
+
+.sidebar a {
+    color: #6b6b6b !important;
 }
 
 .logo {
@@ -395,7 +403,7 @@ td {
     margin-bottom: 50px;
     float: left;
     position: relative;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+    box-shadow: 0 0 2rem 0 rgba(136, 152, 170, 0.22)
 }
 
 .card-blur {
@@ -511,7 +519,7 @@ td {
     border-radius: 6px;
     padding: 30px 60px;
     background: #fff;
-    box-shadow: 0 16px 24px 2px rgba(0, 0, 0, .14), 0 6px 30px 5px rgba(0, 0, 0, .12), 0 8px 10px -5px rgba(0, 0, 0, .2);
+    box-shadow: 0 0 2rem 0 rgba(136, 152, 170, 0.22)
 }
 
 .post-img h1 {
@@ -644,4 +652,46 @@ td {
 .step2 form {
     position: relative;
     top: -110px;
+}
+
+.register input {
+    margin-top: 0px;
+    margin: 10px 0px;
+}
+
+.register {
+    height: 440px;
+    margin-top: -270px;
+}
+
+.input-register i {
+    position: absolute !important;
+    top: 25px !important;
+    left: 69px !important;
+    color: #adb5bd !important;
+}
+
+.input-register i.gg-lock {
+    position: absolute !important;
+    top: 36px !important;
+    left: 69px !important;
+    color: #adb5bd !important;
+}
+
+.register form {
+    padding-top: 20px;
+}
+
+.register button {
+    margin-top: 15px;
+}
+
+.profile button {
+    outline: none;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px 12px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, rgb(162, 87, 211) 0%, rgba(247, 122, 222, 1) 100%);
 }

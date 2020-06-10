@@ -1,6 +1,6 @@
 RewriteEngine on
 Options +FollowSymlinks
-Options -Indexes
+# Options -Indexes
 
 <IfModule mod_rewrite.c>
 RewriteCond %{HTTP_USER_AGENT} ^w3af.sourceforge.net [NC,OR]

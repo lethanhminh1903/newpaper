@@ -1,72 +1,19 @@
+<?php
+    session_start();
+    include_once 'views/component/head.php';
+?>
 <!DOCTYPE html>
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Primary Meta Tags -->
-    <title>Trang chủ | Gud News</title>
-    <meta name="title" content="Trang chủ | Gud News">
-    <meta name="description" content="Một trang web tin tức nhanh, tổng hợp từ các nguồn báo chính thống. Đồng thời có chức năng điểm tin, giúp người dùng tiếp nhận thông tin một cách nhanh nhất.">
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="">
-    <meta property="og:title" content="Trang chủ | Gud News">
-    <meta property="og:description" content="Một trang web tin tức nhanh, tổng hợp từ các nguồn báo chính thống. Đồng thời có chức năng điểm tin, giúp người dùng tiếp nhận thông tin một cách nhanh nhất.">
-    <meta property="og:image" content="views/assets/image/banner/1.png">
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="">
-    <meta property="twitter:title" content="Trang chủ | Gud News">
-    <meta property="twitter:description" content="Một trang web tin tức nhanh, tổng hợp từ các nguồn báo chính thống. Đồng thời có chức năng điểm tin, giúp người dùng tiếp nhận thông tin một cách nhanh nhất.">
-    <meta property="twitter:image" content="views/assets/image/banner/1.png">
-    <link rel="stylesheet" href="views/assets/css/style.css">
-    <link rel="stylesheet" href="views/assets/css/css.css">
-    <link rel="stylesheet" href="views/assets/css/animation.min.css">
+    <?php head('Trang chủ | Gud News'); ?>
 </head>
 
 <body>
     <div class="container">
-        <div class="sidebar">
-            <div class="logo">
-                <a href="#">
-                    <img src="views/assets/image/logo.png" width="150">
-                </a>
-            </div>
-            <div class="menu-sidebar">
-                <div class="menu-content active">
-                    <i class="gg-home-alt"></i> Trang chủ
-                </div>
-                <div class="menu-content">
-                    <i class="gg-coffee" style="margin-left: 0;"></i> Tin hot
-                </div>
-                <div class="menu-content">
-                    <i class="gg-list"></i> Danh mục
-                </div>
-                <div class="menu-content">
-                    <i class="gg-calendar-due"></i> Liên hệ
-                </div>
-                <div class="menu-content">
-                    <i class="gg-awards"></i> Về chúng tôi
-                </div>
-            </div>
-            <div style="padding-right: 30px;">
-                <div class="logout">
-                    <i class="gg-log-off"></i> Đăng xuất
-                </div>
-            </div>
-        </div>
+        <?php include_once 'views/component/sidebar.php'; ?>
         <div class="row">
-            <div class="navbar">
-                <div class="search">
-                    <i class="gg-search"></i>
-                    <input type="text" id="search" placeholder="Search">
-                </div>
-                <div class="profile">
-                    <span class="name">Nguyen Nam Hong</span>
-                    <div class="avatar"></div>
-                </div>
-            </div>
+            <?php include_once 'views/component/navbar.php'; ?>
             <div class="banner">
                 <div class="banner-content">
                     <h1>Gud News</h1>
@@ -310,9 +257,7 @@
                     </div>
                 </div>
             </div>
-            <div class="footer">
-                <p>Copyright © 2020. Đồ án Nguyễn Nam Hồng - Lê Thành Minh</p>
-            </div>
+            <?php include_once 'views/component/footer.php'; ?>
         </div>
     </div>
 </body>
