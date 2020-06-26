@@ -52,6 +52,7 @@ CREATE TABLE `like` (
 
 
 CREATE TABLE `comment` (
+  `comment_id` int(11) NOT NULL UNIQUE AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `post_id` int(11) NOT NULL,
   `content` text NOT NULL,

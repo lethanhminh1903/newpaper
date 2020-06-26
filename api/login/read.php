@@ -17,11 +17,11 @@
 
 	// check user input data
 	if ($email == "") {
-		// set response code - 404 Not found
-	    http_response_code(404);
+		// set response code - 400 Not found
+	    http_response_code(200);
 	 
 	    // tell the user email or password wrong
-	    echo json_encode(array("code" => 404,"message" => "Not Found."));
+	    echo json_encode(array("code" => 400,"message" => "Có vẻ như bạn chưa điền email (･´з`･)"));
 	    die();
 	}
 	// mysqli_real_escape_string value input
@@ -43,10 +43,10 @@
 		echo json_encode($record);
 	} else {
 		// set response code - 404 Not found
-	    http_response_code(404);
+	    http_response_code(200);
 	 
 	    // tell the user email or password wrong found
-	    echo json_encode(array("code" => 404,"message" => "Not Found."));
+	    echo json_encode(array("code" => 400,"message" => "Email không tồn tại nha (･´з`･)"));
 	    die();
 	}
 ?>

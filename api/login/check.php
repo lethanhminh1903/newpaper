@@ -20,10 +20,10 @@
 	// check user input data
 	if ($password == "" || $email == "" || @$_SESSION['id']) {
 		// set response code - 404 Not found
-	    http_response_code(404);
+	    http_response_code(200);
 	 
 	    // tell the user email or password wrong
-	    echo json_encode(array("code" => 404,"message" => "Đăng nhập thất bại."));
+	    echo json_encode(array("code" => 404,"message" => "Chưa điền mật khẩu kìa (･´з`･)"));
 	    die();
 	}
 	// mysqli_real_escape_string value input
@@ -54,10 +54,10 @@
 	    die();
 	} else {
 		// set response code - 404 Not found
-	    http_response_code(404);
+	    http_response_code(200);
 	 
 	    // tell the user email or password wrong found
-	    echo json_encode(array("code" => 404,"message" => "Đăng nhập thất bại."));
+	    echo json_encode(array("code" => 404,"message" => "Sai mật khẩu rồi (･´з`･)"));
 	    die();
 	}
 ?>

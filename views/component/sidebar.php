@@ -6,7 +6,7 @@
     </div>
     <div class="menu-sidebar">
         <a href="index.php">
-            <div class="menu-content">
+            <div class="menu-content" id="home">
                 <i class="gg-home-alt"></i> Trang chủ
             </div>
         </a>

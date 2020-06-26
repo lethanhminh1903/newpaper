@@ -11,6 +11,7 @@ body {
 
 a {
     text-decoration: none !important;
+    color: #333 !important;
 }
 
 button {
@@ -694,4 +695,169 @@ td {
     padding: 10px 12px;
     border-radius: 4px;
     background: linear-gradient(90deg, rgb(162, 87, 211) 0%, rgba(247, 122, 222, 1) 100%);
+}
+
+.button-custom {
+    outline: none;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    padding: 10px 20px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, rgb(162, 87, 211) 0%, rgba(247, 122, 222, 1) 100%);
+}
+
+.comments {
+    width: 100%;
+    height: auto;
+    margin-top: 50px;
+}
+
+.comment {
+    width: 100%;
+    height: auto;
+    position: relative;
+    margin-top: 50px;
+}
+
+.comment h4 {
+    margin-block-end: -5px;
+}
+
+.content-comment {
+    padding: 10px 40px;
+    background: #f3e5f557;
+    border-radius: 6px;
+}
+
+.avatar-comment {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: absolute;
+    top: -20px;
+    left: -20px;
+}
+
+div#detail {
+    margin-bottom: 40px;
+    border-bottom: 1px solid #bdbdbd78;
+}
+
+.content-comment textarea {
+    width: 100%;
+    border: 1px solid #fff;
+    border-radius: 6px;
+    resize: none;
+    outline: none;
+    font-size: 14px;
+    margin-bottom: 15px;
+    padding: 14px;
+}
+
+div#detail video {
+    max-width: 100%;
+    height: auto;
+}
+
+.like-button {
+    align-items: center;
+    display: flex;
+}
+
+.like-button img {
+    margin-right: 8px;
+    filter: grayscale(1);
+}
+
+.add-editor input {
+    width: 100%;
+    height: 35px;
+    font-size: 14px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    border: 1px solid #EEEEEE;
+    outline: none;
+    padding-left: 12px;
+}
+
+.button-delete {
+    outline: none;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    padding: 3px 15px;
+    border-radius: 4px;
+    background: #E57373;
+    line-height: 22px;
+}
+
+.avatar-profile {
+    float: left;
+    width: 15%;
+    height: 100px;
+    height: 123px;
+    margin-right: 20px;
+}
+
+.info-profile {
+    float: left;
+    width: 82%;
+}
+
+.avatar-detail {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.avatar-profile input {
+    position: absolute;
+    left: -99999px;
+    top: -99999px;
+}
+
+.avatar-detail:hover>.bg-avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #42424278;
+    cursor: pointer;
+    text-align: center;
+    color: #fff;
+    line-height: 123px;
+    font-weight: 700;
+    display: block !important;
+}
+
+.remove-comment {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    background: #333333ab;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.admin {
+    width: 220px;
+    height: 100%;
+    left: 0;
+    background: #333 url(https://demos.creative-tim.com/material-dashboard-pro/assets/img/sidebar-1.jpg) no-repeat center center;
+    z-index: 5;
+}
+
+.bg-black-admin {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: .8;
 }

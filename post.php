@@ -1,5 +1,8 @@
 <?php
+    session_start();
     include_once 'views/component/head.php';
+    $id = $_GET['id'];
+    $title = $_GET['title'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -14,17 +17,21 @@
         <div class="row">
             <?php include_once 'views/component/navbar.php'; ?>
             <div class="post-detail">
-                <div class="post-img" style="background: url(https://demos.creative-tim.com/vue-material-kit-pro/img/bg5.0b37f7db.jpg) center center / cover">
-                    <h1>How We Built the Most Successful Castle Ever</h1>
+                <div class="post-img" id="image" style="background: url(https://demos.creative-tim.com/vue-material-kit-pro/img/bg5.0b37f7db.jpg) center center / cover">
+                    <h1 id="title_detail">How We Built the Most Successful Castle Ever</h1>
                 </div>
                 <div class="main-post">
                     <div class="card-author-user">
-                        <div class="card-avatar-author" style="background: url(https://file.vforum.vn/hinh/2018/05/top-nhung-hinh-anh-ulzzang-girl-chat-dep-nhat-che-mat-buon-cute-35.jpg) center center / cover"></div>
-                        Nguyen Nam Hong - 2 giờ trước
+                        <div class="card-avatar-author" id="avatar"></div>
+                        <span id="name"></span> - <span id="created"></span>
                     </div>
-                    <h3>The Castle Looks Different at Night...</h3>
-                    <p>This is the paragraph where you can write more details about your product. Keep you user engaged by providing meaningful information. Remember that by this time, the user is curious, otherwise he wouldn't scroll to get here. Add a button if you want the user to see more. We are here to make life better.</p>
-                    <p>And now I look and look around and there’s so many Kanyes I've been trying to figure out the bed design for the master bedroom at our Hidden Hills compound... and thank you for turning my personal jean jacket into a couture piece.</p>
+                    <div id="detail"></div>
+                    <div class="like-button"><img src="https://twemoji.maxcdn.com/2/72x72/2764.png" id="like-button" width="20" alt="like"><span id="like-total"></span></div>
+                    <h2>Bình luận</h2>
+                    <div class="comments">
+                        <?php include_once 'views/component/comment.php'; ?>
+                        <div id="all-comment"></div>
+                    </div>
                 </div>
             </div>
             <div class="news-docs">
@@ -87,6 +94,180 @@
             <?php include_once 'views/component/footer.php'; ?>
         </div>
     </div>
+    <script>
+        data = {id: <?php echo $id; ?>, title: "<?php echo $title; ?>"};
+        // add post user
+        fetch('api/post/read_post_detail.php', {
+          method: 'POST', 
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        })
+        .then(response => response.json())
+        .then(data => {
+            var image = document.getElementById('image'),
+            title = document.getElementById('title_detail'),
+            created = document.getElementById('created'),
+            name = document.getElementById('name'),
+            avatar = document.getElementById('avatar'),
+            detail = document.getElementById('detail');
+
+            image.setAttribute('style', "background: url("+data.result.image+") center center / cover");
+            title.innerHTML = data.result.title;
+            created.innerHTML = data.result.created;
+            name.innerHTML = data.result.name;
+            avatar.setAttribute('style',"background: url("+data.result.avatar+") center center / cover");
+            detail.innerHTML = data.result.detail_description;
+            document.title = data.result.title + " | Gud News"
+
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+
+        var comment = document.getElementById('comment-button');
+        var like = document.getElementById('like-button');
+        var total = document.getElementById('like-total');
+
+        comment.addEventListener('click',() => {
+            var content = document.getElementById('content').value;
+            data = {id: <?php echo $id; ?>,content: content};
+            // add post user
+            fetch('api/comment/add.php', {
+                method: 'POST', 
+                headers: {
+                'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+            .then(response => response.json())
+            .then(data => {
+                get_comment_id();
+                document.getElementById('content').value = '';
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        });
+
+        like.addEventListener('click',() => {
+            data = {id: <?php echo $id; ?>};
+            // add like user
+            fetch('api/like/add.php', {
+                method: 'POST', 
+                headers: {
+                'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+            .then(response => response.json())
+            .then(data => {
+                var like = document.getElementById('like-button');
+                var total = document.getElementById('like-total');
+                if (data.code == 400) {
+                    return false;
+                }
+                if (data.message != 'unlike') {
+                    like.setAttribute('style','filter: none');
+                    total.innerHTML = data.like_total + " lượt thích";
+                } else {
+                    like.setAttribute('style','');
+                    total.innerHTML = data.like_total + " lượt thích";
+                }                
+            })
+            .catch((error) => {
+              console.error('Error:', error);
+            });
+        });
+        data_like = {id: <?php echo $id; ?>};
+        // check like
+        fetch('api/like/check.php', {
+            method: 'POST', 
+            headers: {
+            'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data_like),
+        })
+        .then(response => response.json())
+        .then(data => {
+            var like = document.getElementById('like-button');
+            var total = document.getElementById('like-total');
+            if (data.message != 'unlike') {
+                like.setAttribute('style','filter: none');
+            } else {
+                like.setAttribute('style','');
+            }
+            total.innerHTML = data.like_total + " lượt thích";              
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+
+        function get_comment_id() {
+            data = {id: <?php echo $id; ?>};
+            fetch('api/comment/read-me.php', {
+                method: 'POST', 
+                headers: {
+                'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+            .then(response => response.json())
+            .then(data => {
+                show_comment(data);
+            })
+            .catch((error) => {
+              console.error('Error:', error);
+            });
+        }
+        // show all comment
+        function show_comment(comment_id){
+            data = {id: <?php echo $id; ?>};
+            console.log('hihi');
+            fetch('api/comment/read.php', {
+                method: 'POST', 
+                headers: {
+                'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+            .then(response => response.json())
+            .then(data => {
+                var comment = document.getElementById('all-comment');
+                comment.innerHTML = '';
+                for (a of data.result) {
+                    if (comment_id.result.id.indexOf(a.id) == -1) {
+                        comment.insertAdjacentHTML('beforeend',"<div class='comment'><div class='content-comment'><h4>"+a.name+" - "+a.created+"</h4><p>"+a.content+"</p><div class='avatar-comment' style='background: url("+a.avatar+") center center / cover;'></div></div>");
+                    } else {
+                        comment.insertAdjacentHTML('beforeend',"<div class='comment'><div class='content-comment'><h4>"+a.name+" - "+a.created+"</h4><p>"+a.content+"</p><div class='avatar-comment' style='background: url("+a.avatar+") center center / cover;'></div><div onclick='remove_comment("+a.id+")' class='remove-comment'>x</div></div></div>");
+                    }
+                }
+            })
+            .catch((error) => {
+              console.error('Error:', error);
+            });
+        }
+
+        function remove_comment(id) {
+            data = {id: id};
+            fetch('api/comment/delete.php', {
+                method: 'POST', 
+                headers: {
+                'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+            .then(response => response.json())
+            .then(data => {
+                get_comment_id();
+            })
+            .catch((error) => {
+              console.error('Error:', error);
+            });
+        }
+        get_comment_id();
+    </script>
 </body>
 
 </html>

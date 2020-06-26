@@ -17,7 +17,7 @@
     </div>
     <div class="container-account">
         <div class="bg-top"></div>
-        <h1>ĐĂNG NHẬP</h1>
+        <h1 id="status">ĐĂNG NHẬP</h1>
     </div>
     <div class="login" id="login-layout">
         <div id="avatar" class="avatar-login" style="display: none"></div>
@@ -51,9 +51,12 @@
             })
             .then(response => response.json())
             .then(data => {
-                if (data.code == 404) {
-                    return;
+                var status = document.getElementById('status');
+                if (data.code == 400) {
+                    status.innerHTML = data.message;
+                    return false;
                 }
+                status.innerHTML = "ĐĂNG NHẬP";
                 var login_layout = document.getElementById('login-layout'),
                 pass_layout = document.getElementById('pass-layout'),
                 login_step1 = document.getElementById('login-step1'),
@@ -92,12 +95,14 @@
             })
             .then(response => response.json())
             .then(data => {
+                var status = document.getElementById('status');
                 if (data.code == 404) {
-                    return;
-                }
-                setTimeout(()=>{
+                    status.innerHTML = data.message;
+                    return false;
+                } else {
                     window.location = 'index.php';
-                },1000)
+                }
+                
             })
         })
     </script>

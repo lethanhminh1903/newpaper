@@ -21475,7 +21475,7 @@
     box-sizing: border-box;
     width: 20px;
     height: 18px;
-    background: linear-gradient(to left, currentColor 8px, transparent 0)no-repeat 14px 4px/6px 2px, linear-gradient(to left, currentColor 8px, transparent 0)no-repeat 14px 8px/6px 2px, linear-gradient(to left, currentColor 8px, transparent 0)no-repeat 14px 12px/6px 2px
+    background: linear-gradient(to left, currentColor 8px, transparent 0)no-repeat 14px 4px/6px 1px, linear-gradient(to left, currentColor 8px, transparent 0)no-repeat 14px 8px/6px 1px, linear-gradient(to left, currentColor 8px, transparent 0)no-repeat 14px 12px/6px 1px
 }
 
 .gg-user-list::after,

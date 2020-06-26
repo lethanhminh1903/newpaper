@@ -2,6 +2,8 @@ RewriteEngine on
 Options +FollowSymlinks
 # Options -Indexes
 
+RewriteRule ^([a-zA-Z\.\-\_0-9]+)-([0-9]+).html$ post.php?title=$1&id=$2 [L]
+
 <IfModule mod_rewrite.c>
 RewriteCond %{HTTP_USER_AGENT} ^w3af.sourceforge.net [NC,OR]
 RewriteCond %{HTTP_USER_AGENT} dirbuster [NC,OR]

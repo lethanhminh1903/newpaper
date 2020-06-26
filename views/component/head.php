@@ -6,6 +6,7 @@ function head(
 ) {
 echo '<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="views/assets/image/favicon.png">
     <!-- Primary Meta Tags -->
     <title>'.$title.'</title>
     <meta name="title" content="'.$title.'">
